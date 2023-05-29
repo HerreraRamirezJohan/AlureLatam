@@ -1,0 +1,90 @@
+@use 'base/var' as v;
+@use 'base/mixins' as m;
+
+.barber-img{
+    img{
+        width: auto;
+        margin: 0 auto;
+    }
+}
+.barber-header{
+    box-sizing: border-box;
+    background-color: #bbb;
+    padding: 2rem 0;
+    .header-conteiner{
+        max-width: 80%;
+        position: relative;
+        margin: 0 auto;
+    }
+    img{
+        width: auto;
+    }
+    nav{
+        position: absolute;
+        top: 10rem;
+        right: 0;
+    }
+    nav li{
+        display: inline-block;
+    }
+    nav a{
+        text-transform: uppercase;
+        color: #000;
+        font-weight: bold;
+        font-size: 2.2rem;
+        margin: 0 0 0 1.5rem;
+
+        &:hover{
+            color: orange;
+            text-decoration: underline;
+        }
+    }
+}
+
+
+.barber-products{
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 5rem;
+    box-sizing: border-box;
+    li{
+        display: inline-block;
+        width: 30%;
+        vertical-align: top;
+        margin: 0 1.5%;
+        padding: 3rem 2rem;
+        box-sizing: border-box;
+        border: .5rem solid v.$black;
+        border-radius: 2rem;
+        &:hover{
+            border-color: orange;
+            cursor: pointer;
+            h2{
+                font-size: 3.3rem;
+            }
+        }
+    }
+    h2{
+        font-size: 3rem;
+        font-weight: bold;
+        margin: 0;
+    }
+
+    .prod-description{
+        font-size: 1.8rem;
+    }
+    .prod-price{
+        font-weight: bold;
+        font-size: 2rem;
+        margin-top: 1rem;
+    }
+}
+
+.barber-footer{
+    text-align: center;
+    p{
+        color: v.$white;
+        font-size: 1.3rem;
+        padding: 4rem 0;
+    }
+}

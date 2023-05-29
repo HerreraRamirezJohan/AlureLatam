@@ -1,0 +1,59 @@
+@use 'base/var' as v;
+@use 'base/mixins' as m;
+
+.header{
+    background-image: url('../img/_mission.png');
+    background-color: rgba(120, 120, 120, .02);
+
+    height: 50rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    /* Centrar horital y ventical puedes poner % */
+    background-position: center center;
+    a{
+        font-size: 2rem;
+        color: v.$white;
+    }
+    .flex{
+        flex-direction: column;
+        margin: 0;
+        gap: 2rem;
+        @include m.tablet{
+            flex-direction: row;
+            margin: 0 4rem;
+            justify-content: space-between;
+        }
+    }
+}
+.box{
+    border: 2px solid v.$white;
+}
+
+/* Animacion de texto */
+@keyframes typing {
+    from { width: 0;}
+    to { width: 100%;}
+}
+.header-text{
+    color: v.$white;
+    max-width: 70%;
+    margin: 5rem auto;
+    @include m.phone{
+        display: flex;
+        flex-direction: column;
+    }
+    .typing-animation{
+        .typing-text{
+            overflow: hidden;
+            white-space: pre-line;
+            @include m.tablet{
+                white-space: nowrap;
+                display: inline-block;
+            }
+            width: 0;
+            animation: typing 3s steps(20, end) 1s forwards;
+            color: v.$white;
+        }
+    }
+}

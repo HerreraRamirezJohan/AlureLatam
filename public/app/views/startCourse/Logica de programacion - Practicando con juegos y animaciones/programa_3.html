@@ -1,0 +1,40 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+    let pantalla = document.querySelector("canvas");
+    let pincel = pantalla.getContext("2d");
+
+    pincel.fillStyle = 'gray';
+    pincel.fillRect(0,0,600,400);
+    let colors = ["blue" , "red" , "green"];
+    let count = 0;
+
+    function dibujarCirculo(x, y, radio, color) {
+
+        pincel.fillStyle = color;
+        pincel.beginPath();
+        pincel.arc(x, y, radio, 0, 2*3.14);
+        pincel.fill();
+    }
+
+    function alterarColor(){
+        count += 1;
+        if(count >= 3)
+            count = 0;
+        alert('El color actual es ' + colors[count]);
+    }
+
+    function showCircle(e){
+
+        let x = e.pageX - pantalla.offsetLeft;
+        let y = e.pageY - pantalla.offsetTop;
+
+        dibujarCirculo(x, y, 10, colors[count]);
+
+    }
+
+    /* No es necesario colocar los parentesis. */
+    /* El metodo onclick envia por automatico el parametro evento. */
+    pantalla.oncontextmenu = alterarColor;
+    pantalla.onclick = showCircle;
+</script>

@@ -1,0 +1,37 @@
+<canvas width="600" height="400">
+
+</canvas>
+<script>
+    const myWindow = document.querySelector("canvas");
+    const pincel = myWindow.getContext("2d");
+    let x = 20;
+    let flag = 1;
+
+    function drawBakcground(){
+        pincel.fillStyle = "lightgrey";
+        pincel.fillRect(0,0, 600, 400);
+    }
+
+    function dibujarCirculo(x, y, radio, color) {
+
+        pincel.fillStyle = color;
+        pincel.beginPath();
+        pincel.arc(x, y, radio, 0, 2*Math.PI);
+        pincel.fill();
+    }
+
+    function cleanScreen(){
+        pincel.clearRect(0,0,600,400);
+    }
+    function update(){
+        cleanScreen();
+        drawBakcground();
+        dibujarCirculo(x, 20, 10, "blue");
+        if(x > 580 || x < 20)
+            flag = flag*(-1);
+        
+        x += flag;
+    }
+
+    setInterval(update, 5);
+</script>

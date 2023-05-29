@@ -1,0 +1,31 @@
+<meta charset="utf-8">
+
+
+<canvas width="600" height="400">
+
+</canvas>
+<script>
+
+    function drawSquere(x, y, color){
+        const myWindow = document.querySelector("canvas");
+        const pincel = myWindow.getContext("2d");
+    
+        pincel.fillStyle = color;
+        pincel.fillRect(x,y, 50, 50);
+        pincel.strokeStyle = "black";
+        pincel.strokeRect(x,y,50,50);
+    }
+
+    // let x = 0;
+    // while(x < 600){
+    //     drawSquere(x,0,"green");
+    //     x += 50;
+    // }
+
+    for(let x = 0; x < 600 ;x += 50){
+        drawSquere(x,0,"red");
+        drawSquere(x,50,"yellow");
+        drawSquere(x,100,"green");
+    }
+
+</script>
